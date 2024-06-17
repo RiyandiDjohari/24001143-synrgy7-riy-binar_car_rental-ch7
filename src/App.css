@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+  margin: 0;
+}
+
+.form-login {
+  width: 100%;
+}
+
+.form-login input {
+  width: 100%;
+  outline: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 10px 15px;
+  margin-bottom: 16px;
+}
+
+.slick-dots li {
+  width: 30px !important;
+  background-color: #808080;
+}
+
+.slick-dots li.slick-active button {
+  background-color: #5CB85F !important;
+}
+
+.ant-card-body {
+  display: flex;
+  flex-direction: column;
+  height: 100% !important;
+}
+
+thead > tr > .ant-table-cell{
+  background-color: #CFD4ED !important;
+}
+
+
+.btn-primary {
+  @apply py-2 px-3 bg-[#5CB85F] rounded-sm text-white font-bold;
+}
+
+.btn-reset {
+  @apply py-2 px-3 bg-[#ff4d4f] rounded-sm text-white font-bold;
+}
+
+.logo {
+  @apply font-bold text-[24px] leading-[36px] mb-0;
+}
+
+.headline {
+  @apply font-bold text-[36px] leading-[54px] mb-4;
+}
+
+.title {
+  @apply font-bold text-[24px] leading-[36px] mb-4;
+}
+
+.description {
+  @apply font-light text-[14px] leading-[20px] mb-4;
+}
+
+.content {
+  @apply font-light text-[14px] leading-[20px] m-0;
+}
+
+.card {
+  @apply p-6 flex flex-col gap-4 items-start border-[1px] border-[#D0D0D0] rounded-md w-full md:max-w-[300px] lg:max-w-[450px] xl:max-w-[286px];
+}
