@@ -72,6 +72,7 @@ const AddCar = () => {
   };
 
   const onDateChange: DatePickerProps["onChange"] = (date, dateString) => {
+    console.log(date)
     setAvailableAt(dateString);
   };
 
