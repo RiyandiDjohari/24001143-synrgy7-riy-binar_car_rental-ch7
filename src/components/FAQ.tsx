@@ -18,6 +18,7 @@ const FAQ = () => {
   uno tempo vicente del busquet contreao la nina vergonia uni carrasco?
 `;
 
+  // eslint-disable-next-line no-unused-vars
   const getItems: (panelStyle: CSSProperties) => CollapseProps["items"] = (panelStyle) => {
     return faqItems.map((item, i) => ({
       key: i,

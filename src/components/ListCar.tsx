@@ -30,7 +30,7 @@ const ListCar = ({ cars, fetchCars }: any) => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const response = await axios.delete(`http://localhost:8000/api/v1/cars/${id}`, {
+          const response = await axios.delete(`https://powerful-grata-riyandidjohari-02bd0c8c.koyeb.app/api/v1/cars/${id}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },

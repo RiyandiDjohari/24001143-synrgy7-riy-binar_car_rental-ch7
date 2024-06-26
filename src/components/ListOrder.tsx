@@ -3,7 +3,7 @@ import { useState } from "react";
 // import { showLimitOption } from "../constant";
 
 const ListOrder = ({ orders }: any) => {
-  const [entryData, setEntryData] = useState(10);
+  const [entryData] = useState(10);
 
 //   const handleLimitChange = (value: number) => setEntryData(value);
   const dataSource = orders.map((order: any, i: number) => ({
@@ -73,18 +73,7 @@ const ListOrder = ({ orders }: any) => {
         }}
         style={{zIndex: -1}}
       />
-      {/* <div>
-        <p>Limit</p>
-        <Select
-          defaultValue={10}
-          style={{
-            width: 60,
-            margin: "0 10px",
-          }}
-          onChange={handleLimitChange}
-          options={showLimitOption}
-        />
-      </div> */}
+      
     </Space>
   );
 };

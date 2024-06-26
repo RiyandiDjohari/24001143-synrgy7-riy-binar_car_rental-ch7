@@ -5,7 +5,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Cars from "./pages/Cars";
 import NotFound from "./components/NotFound";
 import LandingPage from "./pages/LandingPage";
-import LoginUser from "./pages/Login";
+import LoginUser from "./pages/LoginUser";
 import LoginAdmin from "./pages/LoginAdmin";
 import Register from "./pages/Register";
 import FilterCars from "./pages/FilterCars";

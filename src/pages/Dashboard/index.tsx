@@ -14,7 +14,7 @@ const Dashboard = () => {
   const token = currentUser.token;
 
   const fetchOrders = async () => {
-    const response = await axios.get("http://localhost:8000/api/v1/orders", {
+    const response = await axios.get("https://powerful-grata-riyandidjohari-02bd0c8c.koyeb.app/api/v1/orders", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -24,7 +24,7 @@ const Dashboard = () => {
   };
 
   const fetchCars = async () => {
-    const response = await axios.get("http://localhost:8000/api/v1/cars", {
+    const response = await axios.get("https://powerful-grata-riyandidjohari-02bd0c8c.koyeb.app/api/v1/cars", {
       headers: {
         Authorization: `Bearer ${token}`,
       },

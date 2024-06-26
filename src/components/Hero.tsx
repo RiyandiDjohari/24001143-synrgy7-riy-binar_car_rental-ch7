@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import heroBanner from "../assets/bg-car.svg";
 
-const Hero = ({ hideButton }: any) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const Hero = ({ hideButton } : any) => {
   return (
     <section
       className="bg-secondary py-[7rem] md:py-0 min-h-[70vh] flex justify-center items-center relative"

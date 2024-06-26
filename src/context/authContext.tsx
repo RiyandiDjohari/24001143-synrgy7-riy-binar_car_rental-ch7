@@ -11,6 +11,7 @@ interface ICurrentUser {
 
 type AuthContextType = {
   currentUser: ICurrentUser | null;
+  // eslint-disable-next-line no-unused-vars
   setCurrentUser: (user: ICurrentUser) => void;
 };
 

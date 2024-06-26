@@ -2,7 +2,7 @@ import { Flex, Space, Table } from "antd"
 import { useState } from "react";
 
 const TableCar = ({cars} : any) => {
-    const [entryData, setEntryData] = useState(10);
+    const [entryData] = useState(10);
 
     console.log(cars)
 //   const handleLimitChange = (value: number) => setEntryData(value);

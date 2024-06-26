@@ -13,7 +13,7 @@ const LoginAdmin = () => {
   const onFinish = async (values: any) => {
     try {
       const { email, password } = values;
-      const response = await axios.post("http://localhost:8000/api/v1/auth/login", { email, password });
+      const response = await axios.post("https://powerful-grata-riyandidjohari-02bd0c8c.koyeb.app/api/v1/auth/login", { email, password });
       const data = await response.data;
       const token = data.token;
 

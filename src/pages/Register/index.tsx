@@ -11,7 +11,7 @@ const Register = () => {
     try {
       const { name, username, email, password } = values;
       const payload = { name, username, email, password };
-      const response = await axios.post("http://localhost:8000/api/v1/auth/register", payload);
+      const response = await axios.post("https://powerful-grata-riyandidjohari-02bd0c8c.koyeb.app/api/v1/auth/register", payload);
       const data = await response.data;
 
       if (data.status == true) {

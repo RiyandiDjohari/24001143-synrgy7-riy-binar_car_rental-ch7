@@ -50,7 +50,7 @@ const AddCar = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:8000/api/v1/cars", formData, {
+      const response = await axios.post("https://powerful-grata-riyandidjohari-02bd0c8c.koyeb.app/api/v1/cars", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
