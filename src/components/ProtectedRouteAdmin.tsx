@@ -10,14 +10,15 @@ import { Button, ConfigProvider, Layout, theme } from "antd";
 import UserProfile from "./UserProfile";
 const { Header, Sider, Content } = Layout;
 
-interface ProtectedRouteProps {
+interface ProtectedRouteAdminProps {
   children?: ReactNode;
 }
 
-const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
+const ProtectedRouteAdmin = ({ children }: ProtectedRouteAdminProps) => {
   const token = localStorage.getItem("token");
+  const user = JSON.parse(localStorage.getItem("user") || "{}")
 
-  if (!token) return <Navigate to="/login-admin" />;
+  if (!token || user.role !== "admin") return <Navigate to="/login-admin" />;
 
   const [collapsed, setCollapsed] = useState(false);
   const [active, setActive] = useState("dashboard");
@@ -99,4 +100,4 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
   );
 };
 
-export default ProtectedRoute;
+export default ProtectedRouteAdmin;

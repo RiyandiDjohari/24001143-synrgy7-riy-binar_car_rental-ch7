@@ -1,21 +1,16 @@
 import { Button, Card, Col, Flex, Row, Space } from "antd";
-import { useContext } from "react";
 import { GoPeople, GoTrash } from "react-icons/go";
 import { IoSettingsOutline } from "react-icons/io5";
 import { MdOutlineDateRange } from "react-icons/md";
-import { AuthContext } from "../context/authContext";
 import { TiEdit } from "react-icons/ti";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const ListCar = ({ cars, fetchCars }: any) => {
-  const { currentUser }: any = useContext(AuthContext);
   const navigate = useNavigate();
-  const token = currentUser.token;
-  const role = currentUser?.role;
-
-  console.log(role);
+  const token = localStorage.getItem("token");
+  const user = JSON.parse(localStorage.getItem("user") || "{}");
 
   const handleDeleteCar = async (id: string) => {
     await Swal.fire({
@@ -53,7 +48,7 @@ const ListCar = ({ cars, fetchCars }: any) => {
     <div className="container my-8 p-0 ">
       <Row gutter={[24, 24]}>
         {cars?.map((car: any) => (
-          <Col key={car.id} sm={24} md={12} lg={8} xxl={role === "admin" ? 8 : 6}>
+          <Col key={car.id} sm={24} md={12} lg={8} xxl={user.role === "admin" ? 8 : 6}>
             <Card className="flex flex-col h-[550px]">
               <img alt="preview" src={car.image} className="h-[225px] w-full object-fill rounded-md mb-4" />
               <Space direction="vertical" size="small" className="flex-grow">
@@ -75,7 +70,7 @@ const ListCar = ({ cars, fetchCars }: any) => {
                   <MdOutlineDateRange />
                   <p>{`Tahun ${car.year}`}</p>
                 </Flex>
-                {role == "user" ? (
+                {user.role == "user" ? (
                   <button className="btn-primary">Pilih Mobil</button>
                 ) : (
                   <Flex gap={16} className="flex-1">

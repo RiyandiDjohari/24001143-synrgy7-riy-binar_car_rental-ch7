@@ -4,14 +4,13 @@ import Hero from "../../components/Hero"
 import ListCar from "../../components/ListCar"
 import Navbar from "../../components/Navbar"
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../context/authContext"
+import { useEffect, useState } from "react";
 
 const FilterCars = () => {
   const [cars, setCars] = useState<any[]>([]);
   const [filteredCars, setFilteredCars] = useState<any>();
-  const { currentUser }: any = useContext(AuthContext);
-  const token = currentUser.token;
+  const token = localStorage.getItem("token");
+  
   const fetchCars = async () => {
     const response = await axios.get("https://powerful-grata-riyandidjohari-02bd0c8c.koyeb.app/api/v1/cars", {
       headers: {
@@ -31,7 +30,6 @@ const FilterCars = () => {
     const filter = cars.filter((car) => car.availableAt <= tanggal && car.capacity == jumlah)
     
     setFilteredCars(filter)
-
   }
 
   return (

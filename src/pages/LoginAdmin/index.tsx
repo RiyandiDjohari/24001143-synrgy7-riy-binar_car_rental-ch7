@@ -13,7 +13,10 @@ const LoginAdmin = () => {
   const onFinish = async (values: any) => {
     try {
       const { email, password } = values;
-      const response = await axios.post("https://powerful-grata-riyandidjohari-02bd0c8c.koyeb.app/api/v1/auth/login", { email, password });
+      const response = await axios.post("https://powerful-grata-riyandidjohari-02bd0c8c.koyeb.app/api/v1/auth/login", {
+        email,
+        password,
+      });
       const data = await response.data;
       const token = data.token;
 
@@ -21,12 +24,12 @@ const LoginAdmin = () => {
         await Swal.fire("Forbidden", "Only Admin", "error");
         return;
       } else {
-        setCurrentUser({...data.data, token});
+        setCurrentUser({ ...data.data, token });
         await Swal.fire("Success", "Login Success", "success");
         localStorage.setItem("token", token);
+        localStorage.setItem("user", JSON.stringify(data.data));
         navigate("/admin/");
       }
-
     } catch (err) {
       await Swal.fire("Error", "Something Went Wrong", "error");
     }

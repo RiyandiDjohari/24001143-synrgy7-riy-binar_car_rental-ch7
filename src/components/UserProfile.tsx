@@ -1,20 +1,17 @@
 import { Avatar, Dropdown, Space } from "antd";
 import type { MenuProps } from "antd";
-import { useContext } from "react";
 import { FaRegCircleUser, FaRegUser } from "react-icons/fa6";
 import { GoChevronDown } from "react-icons/go";
-import { AuthContext } from "../context/authContext";
 import { useNavigate } from "react-router-dom";
 
 const UserProfile = () => {
-  const { currentUser, setCurrentUser }: any = useContext(AuthContext);
   const navigate = useNavigate();
-
-  console.log(currentUser);
+  const user = JSON.parse(localStorage.getItem("user") || "{}");
 
   const handleLogout = () => {
-    setCurrentUser(null);
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
     navigate("/login-admin");
   };
 
@@ -37,7 +34,7 @@ const UserProfile = () => {
       <Dropdown menu={{ items }}>
         <a onClick={(e) => e.preventDefault()}>
           <Space>
-            {currentUser ? currentUser.username : "Admin"}
+            {user.username}
             <GoChevronDown />
           </Space>
         </a>

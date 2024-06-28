@@ -14,9 +14,8 @@ import {
 } from "antd";
 import { Link } from "react-router-dom";
 import { carOptions, carSpecs, carType } from "../../constant";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
-import { AuthContext } from "../../context/authContext";
 import Swal from "sweetalert2";
 
 const AddCar = () => {
@@ -25,8 +24,7 @@ const AddCar = () => {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [availableAt, setAvailableAt] = useState<any>("");
   const { TextArea } = Input;
-  const { currentUser }: any = useContext(AuthContext);
-  const token = currentUser.token;
+  const token = localStorage.getItem("token");
 
   const onFinish = async (values: any) => {
     console.log({ ...values, availableAt });

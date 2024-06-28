@@ -1,17 +1,15 @@
 import { Breadcrumb, Flex, Space } from "antd";
 import { Link } from "react-router-dom";
 import ListOrder from "../../components/ListOrder";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import TableCar from "../../components/TableCar";
-import { AuthContext } from "../../context/authContext";
 
 const Dashboard = () => {
   const [orders, setOrders] = useState<any>([]);
   const [cars, setCars] = useState<any[]>([]);
 
-  const { currentUser }: any = useContext(AuthContext);
-  const token = currentUser.token;
+  const token = localStorage.getItem("token");
 
   const fetchOrders = async () => {
     const response = await axios.get("https://powerful-grata-riyandidjohari-02bd0c8c.koyeb.app/api/v1/orders", {

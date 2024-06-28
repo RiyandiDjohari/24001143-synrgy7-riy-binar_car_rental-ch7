@@ -1,7 +1,7 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRouteAdmin from "./components/ProtectedRouteAdmin";
 import Cars from "./pages/Cars";
 import NotFound from "./components/NotFound";
 import LandingPage from "./pages/LandingPage";
@@ -32,7 +32,7 @@ function App() {
         <Route
           path="admin/*"
           element={
-            <ProtectedRoute>
+            <ProtectedRouteAdmin>
               <Routes>
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/cars" element={<Cars />} />
@@ -40,7 +40,7 @@ function App() {
                 <Route path="/edit-car/:id" element={<EditCar />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
-            </ProtectedRoute>
+            </ProtectedRouteAdmin>
           }
         />
 

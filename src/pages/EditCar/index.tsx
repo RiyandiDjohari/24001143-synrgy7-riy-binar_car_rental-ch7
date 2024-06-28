@@ -14,10 +14,9 @@ import {
 } from "antd";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { carOptions, carSpecs, carType } from "../../constant";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import dayjs from "dayjs";
-import { AuthContext } from "../../context/authContext";
 import Swal from "sweetalert2";
 
 const EditCar = () => {
@@ -28,8 +27,7 @@ const EditCar = () => {
   const [availableAt, setAvailableAt] = useState<any>("");
   const { TextArea } = Input;
   const navigate = useNavigate();
-  const { currentUser }: any = useContext(AuthContext);
-  const token = currentUser.token;
+  const token = localStorage.getItem("token");
 
   const fetchCar = async (idCar: string | undefined) => {
     const response = await axios.get(`https://powerful-grata-riyandidjohari-02bd0c8c.koyeb.app/api/v1/cars/${idCar}`, {

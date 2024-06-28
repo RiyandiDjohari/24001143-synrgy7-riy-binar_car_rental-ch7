@@ -24,6 +24,7 @@ const LoginUser = () => {
       await Swal.fire("Success", "Login Success", "success");
       setCurrentUser({ ...data.data, token });
       localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(data.data));
       navigate("/");
     } catch (err) {
       console.log(err);

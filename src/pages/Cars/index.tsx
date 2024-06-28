@@ -3,14 +3,12 @@ import { FaPlus } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import ListCar from "../../components/ListCar";
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../context/authContext";
+import { useEffect, useState } from "react";
 
 export default function Cars() {
   const [cars, setCars] = useState<any[]>([]);
   const navigate = useNavigate();
-  const { currentUser }: any = useContext(AuthContext);
-  const token = currentUser.token;
+  const token = localStorage.getItem("token");
 
   const fetchCars = async () => {
     const response = await axios.get("https://powerful-grata-riyandidjohari-02bd0c8c.koyeb.app/api/v1/cars",{
